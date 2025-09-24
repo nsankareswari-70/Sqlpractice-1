@@ -27,8 +27,17 @@ Queries with Answers:
 6. Show the city, company_name, contact_name of all customers from cities which contains the letter 'L' in the city name, sorted by contact_name
  select city,company_name,contact_name from customers where city like '%L%' order by contact_name;
 ```
-
-
- 
- 
 ```
+7. Show the company_name, contact_name, fax number of all customers that has a fax number. (not null)
+  select company_name,contact_name,fax from customers where fax is not null;
+```
+```
+8. Show the first_name, last_name. hire_date of the most recently hired employee.
+ select first_name,last_name,hire_date from employees where hire_date=
+(select max(hire_date) from employees);
+ ```
+```
+9. Show the average unit price rounded to 2 decimal places, the total units in stock, total discontinued products from the products table.
+select round(avg(unit_price),2) as average_price,sum(units_in_stock) as total_stock,sum(discontinued) as total_discontinued from products;
+```
+
