@@ -122,4 +122,11 @@ select first_name from(select first_name,count(*) as occur from patients group b
 Show patient_id and first_name from patients where their first_name start and ends with 's' and is at least 6 characters long.
 select patient_id,first_name from patients where first_name like 'S____%S';
 ```
+```
+Show patient_id, first_name, last_name from patients whose diagnosis is 'Dementia'.
+
+Primary diagnosis is stored in the admissions table.
+select p.patient_id,p.first_name,p.last_name from patients p join admissions a on p.patient_id=a.patient_id
+where a.diagnosis='Dementia';
+```
 
