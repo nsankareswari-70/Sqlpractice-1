@@ -118,4 +118,8 @@ For example, if two or more people are named 'John' in the first_name column the
 select first_name   from patients group by first_name having count(*)=1;
 select first_name from(select first_name,count(*) as occur from patients group by first_name)where occur=1;
 ```
+```
+Show patient_id and first_name from patients where their first_name start and ends with 's' and is at least 6 characters long.
+select patient_id,first_name from patients where first_name like 'S____%S';
+```
 
